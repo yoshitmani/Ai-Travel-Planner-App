@@ -163,7 +163,7 @@ def travel_planner_app():
     st.markdown("<h1 class='main-title'>AI Travel Planner 🌍✈️🚗🚂🚆</h1>", unsafe_allow_html=True)
     st.info(f"Welcome back, **{st.session_state.username.title()}**! Plan your next adventure.")
 
-    genai.configure(api_key="AIzaSyAmacLuWhLboarSdkLfCJRYgdn9cDZSdYM")
+    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
     
     with st.expander("Plan Your Trip Details", expanded=True):
         with st.form("travel_form"):
@@ -259,4 +259,5 @@ else:
     if st.session_state.show_signup:
         signup_page()
     else:
+
         login_page()
